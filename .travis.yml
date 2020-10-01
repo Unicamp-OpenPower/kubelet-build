@@ -1,0 +1,23 @@
+#Start Travis
+os: linux
+dist: bionic
+arch: ppc64le
+sudo: required
+language: go
+
+go: "1.15.x"
+
+install:
+  - sudo apt update
+  - sudo apt install build-essential
+
+script:
+  - cd $GOPATH
+  - mkdir -p src/k8s.io
+  - cd src/k8s.io
+  - git clone https://github.com/kubernetes/kubernetes
+  - cd kubernetes/
+  - make
+  - cd _output/local/bin/linux/ppc64le/
+  - ls
+  - ./kubelet --version
