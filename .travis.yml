@@ -17,7 +17,7 @@ script:
   - cd src/k8s.io
   - git clone https://github.com/kubernetes/kubernetes
   - cd kubernetes/
-  - make
+  - make kubelet
   - cd _output/local/bin/linux/ppc64le/
   - ls
   - ./kubelet --version
